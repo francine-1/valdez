@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Taken</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Francine Valdez</h1>
+        <nav>
+            <ul>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="subjects.html" class="active">Subject Taken</a></li>
+                <li><a href="enrolled.html">Currently Enrolled</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="favorites.html">My Favorites</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="subjects">
+        <h2>Subjects Taken</h2>
+        
+        <div id="semester-content">
+            <table id="semester-1">
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Units</th>
+                </tr>
+                <tr>
+                    <td>OC 1</td>
+                    <td>ORIENTATION COURSE 1</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>CSIT 1</td>
+                    <td>INTRODUCTION TO COMPUTING</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>CSIT 2</td>
+                    <td>FUNDAMENTALS OF PROGRAMMING</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>NSTP 11L</td>
+                    <td>NSTP 1-LITERACY TRAINING SERVICE</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>PE 1</td>
+                    <td>PATH FIT 1: MOVEMENT COMPETENCY TRAINING</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>SOC SC 1</td>
+                    <td>UNDERSTANDING THE SELF</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>ENGL A</td>
+                    <td>GRAMMAR AND SPEECH ENHANCEMENT</td>
+                    <td>3.0</td>
+                </tr>
+            </table>
+            
+            <table id="semester-2" style="display:none;">
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Units</th>
+                </tr>
+                <tr>
+                    <td>CSIT 3</td>
+                    <td>INTERMEDIATE PROGRAMMING / COMPUTER PROGRAMMING 2</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>ITP 1</td>
+                    <td>IT FUNDAMENTALS</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>ITP 2</td>
+                    <td>DISCRETE MATHEMATICS</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>MATH 1</td>
+                    <td>MATHEMATICS IN THE MODERN WORLD/MATEMATIKA SA MAKABAGONG DAIGDIG</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>NSTP 12L</td>
+                    <td>NSTP 2-LITERACY TRAINING SERVICE II</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>PE 2</td>
+                    <td>PATH FIT 2: FITNESS TRAINING</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>EP 1S</td>
+                    <td>ENGLISH PROFICIENCY - START I</td>
+                    <td>3.0</td>
+                </tr>
+            </table>
+            
+            <table id="semester-3" style="display:none;">
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Units</th>
+                </tr>
+                <tr>
+                    <td>ITP 3</td>
+                    <td>NETWORKING 1 (CISCO 1: NETWORKING BASICS)</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>ITEL 1A</td>
+                    <td>IT ELECTIVE 1: PLATFORM TECHNOLOGIES</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>ITEL 2A</td>
+                    <td>IT ELECTIVE 2: OBJECT-ORIENTED PROGRAMMING</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>HIST 1</td>
+                    <td>READINGS IN PHILIPPINE HISTORY / MGA BABASAHIN HINGGIL SA KASAYSAYAN NG PILIPINAS</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>SOC ECON 1</td>
+                    <td>THE CONTEMPORARY WORLD / ANG KASALUKUYAN DAIGDIG</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>PE 3</td>
+                    <td>PATH FIT 3: SPORTS (INDIVIDUAL/DUAL)</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>CSIT 4</td>
+                    <td>DATA STRUCTURES AND ALGORITHMS</td>
+                    <td>3.0</td>
+                </tr>
+            </table>
+        </div>
+        <div class="pagination">
+
+            <a class="active" onclick="showSemester(1)">1</a>
+            <a onclick="showSemester(2)">2</a>
+            <a onclick="showSemester(3)">3</a>
+            
+        </div>
+    </section>
+<script>
+    let currentIndex = 0;
+
+function showSection(sectionId) {
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+    if (sectionId === 'subjects') {
+        renderSubjects();
+    }
+}
+function showSemester(semester) {
+    document.getElementById('semester-1').style.display = 'none';
+    document.getElementById('semester-2').style.display = 'none';
+    document.getElementById('semester-3').style.display = 'none';
+    
+    document.getElementById('semester-' + semester).style.display = 'table';
+    document.querySelectorAll('.pagination a').forEach(link => {
+        link.classList.remove('active');
+    });
+    document.querySelector('.pagination a:nth-child(' + semester + ')').classList.add('active');
+}
+</script>
+    <footer>
+        <p>&copy; 2025 ITP4 | All Right Reserved</p>
+    </footer>
+</body>
+</html>
